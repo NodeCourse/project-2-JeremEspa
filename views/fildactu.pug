@@ -15,20 +15,21 @@ html
                 a(href="/login") Ajouter un poste
             for actu in actus
                 actu
-                    h1  #{actu.user.pseudo}: #{actu.content} Le #{actu.createdAt}
-                    h2  #{actu.aimes.length} #{actu.aimepas.length}
-                    form(method="post", action="/actu/" + actu.id + "/aime")
-                        button(type='submit') J'aime
-                    form(method="post", action="/actu/" + actu.id + "/aimepa")
-                        button(type='submit') J'aime pas
-                if user
-                    form(action='/comment/' + actu.id, method='post' )
-                        div
-                            label(for='commentaire') Commenter
-                            input(id='commentaire' name='commentaire')
-                            input(type='submit')
-                else
-                    a(href="/login") Ajouter un commentaire
-                for comment in actu.comments
-                    comment
-                        h1 #{comment.user.pseudo}: #{comment.commentaire} Le #{comment.createdAt}
+                    div
+                        h1  #{actu.user.pseudo}: #{actu.content} Le #{actu.createdAt}
+                        h2  #{actu.aimes.length} #{actu.aimepas.length}
+                        form(method="post", action="/actu/" + actu.id + "/aime")
+                            button(type='submit') J'aime
+                        form(method="post", action="/actu/" + actu.id + "/aimepa")
+                            button(type='submit') J'aime pas
+                    if user
+                        form(action='/comment/' + actu.id, method='post' )
+                            div
+                                label(for='commentaire') Commenter
+                                input(id='commentaire' name='commentaire')
+                                input(type='submit')
+                    else
+                        a(href="/login") Ajouter un commentaire
+                    for comment in actu.comments
+                        comment
+                            h1 Commentaire: #{comment.user.pseudo}: #{comment.commentaire} Le #{comment.createdAt}
