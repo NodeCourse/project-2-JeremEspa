@@ -1,0 +1,15 @@
+h1 #{title}
+    br
+    form(role='form', action="/auth",method="post", style='max-width: 300px;')
+            label Nickname
+            input(type='text', name="pseudo")
+            label Firstname
+            input(type='text', name="firstname")
+            label Lastname
+            input(type='text', name="lastname")
+            label Email
+            input(type='text', name="email")
+            label Password
+            input(type='password', name="password")
+
+            button(type='submit') Enregistrer
